@@ -1,25 +1,23 @@
-let users = [];
+let nguoiDung = [];
 
-function isValidEmail(email) {
+function laEmailHopLe(email) {
     const emailRegex = /^[^\s@]+@[^\s@]+\.(com|vn)$/;
     return emailRegex.test(email);
 }
 
-function registerEmail(email) {
-    if (!isValidEmail(email)) {
+function dangKyEmail(email) {
+    if (!laEmailHopLe(email)) {
         console.log("Email không hợp lệ!");
         return;
     }
 
-    if (users.includes(email)) {
+    if (nguoiDung.includes(email)) {
         console.log("Tài khoản đã tồn tại!");
     } else {
-        users.push(email);
+        nguoiDung.push(email);
         console.log("Đăng ký thành công!");
     }
 }
 
-registerEmail("example@gmail.com");
-registerEmail("example@gmail.com");
-registerEmail("example@domain.vn");
-registerEmail("invalid-email");
+const email = prompt("Nhập email của bạn:");
+dangKyEmail(email);
